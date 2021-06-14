@@ -1,45 +1,28 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[8]:
-
-
 import pandas as pd
 
+#Read CSV file
+df = pd.read_csv('sipall.csv')
 
-# In[9]:
-
-
-df = pd.read_csv('C:/Users/raksh/OneDrive/Documents/sip.csv')
-
-
-# In[10]:
+#List all Packets
+print('PCAP Data\n')
+print(df)
 
 
-df.head()
+#No of packets
+packets = df.shape[0]
+print('\nNumber of Packets: ', packets)
 
+#List onlt SIP Packets
+sip = df[df['Protocol']=='SIP']
+print('SIP Protocol\n', sip)
 
-# In[11]:
+#List the Info Field
+print('\nSIP Packets Info\n', sip[['No.','Time', 'Info']])
 
-
-df.shape
-
-
-# In[12]:
-
-
-df[df['Protocol']=='SIP'].head()
-
-
-# In[14]:
-
-
-get_ipython().run_line_magic('matplotlib', 'inline')
-df[df['Protocol']=='SIP'].Length.hist(bins=15)
-
-
-# In[ ]:
-
+#Analysis
+infos = sip['Info'].to_list()
+for info in infos:
+    print('\n',info)
 
 
 
