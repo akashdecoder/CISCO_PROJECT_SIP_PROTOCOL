@@ -21,8 +21,7 @@ print('\nSIP Packets Info\n', sip[['No.','Time', 'Info']])
 
 #Analysis
 infos = sip['Info'].to_list()
+print('\nInfo Fields\n')
 for info in infos:
-    print('\n',info)
-
-
-
+    flag =info.split(':')
+    print('\n',flag[0])
