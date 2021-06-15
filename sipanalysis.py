@@ -25,3 +25,7 @@ print('\nInfo Fields\n')
 for info in infos:
     flag =info.split(':')
     print('\n',flag[0])
+
+#Plotting in Matplotlib For length of sip packets
+%matplotlib inline
+df[df['Protocol']=='SIP'].Length.hist(bins=15)
